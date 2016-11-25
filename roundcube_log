@@ -1,0 +1,23 @@
+/var/www/html/webmail/logs/errors 
+/var/www/html/webmail/logs/bruteforcebreaker 
+/var/www/html/webmail/logs/imap
+/var/www/html/webmail/logs/rcguard 
+/var/www/html/webmail/logs/sendmail
+/var/www/html/webmail/logs/session
+/var/www/html/webmail/logs/sieve
+/var/www/html/webmail/logs/sql
+/var/www/html/webmail/logs/userlogins
+{
+        daily
+        mail root
+        missingok
+        rotate 60
+        dateext
+        dateformat -%Y-%m-%d
+        copytruncate
+        compress
+        notifempty
+        create 640 nginx adm
+        sharedscripts
+        postrotate
+}

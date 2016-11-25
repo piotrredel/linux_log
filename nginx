@@ -1,20 +1,16 @@
 /var/log/nginx/*.log {
-        daily
+    daily
     mail root
-        missingok
-        rotate 52
+    missingok
+    rotate 52
     dateext
-        dateformat -%Y-%m-%d
-        compress
-    #compresscmd /bin/bzip2
-        #compressoptions -6
-        #compressext .bz2
-        #uncompresscmd /bin/bunzip2
-        delaycompress
-        notifempty
-        create 640 nginx adm
-        sharedscripts
-        postrotate
-                [ -f /var/run/nginx.pid ] && kill -USR1 `cat /var/run/nginx.pid`
-        endscript
+    dateformat -%Y-%m-%d
+    compress
+    delaycompress
+    notifempty
+    create 640 nginx adm
+    sharedscripts
+    postrotate
+        [ -f /var/run/nginx.pid ] && kill -USR1 `cat /var/run/nginx.pid`
+    endscript
 }
